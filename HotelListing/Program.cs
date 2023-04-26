@@ -1,3 +1,4 @@
+using HotelListing.Configurations;
 using HotelListing.Data;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -29,6 +30,8 @@ public class Program
                     .AllowAnyOrigin()
                     .AllowAnyMethod());
         });
+
+        builder.Services.AddAutoMapper(typeof(MapperConfig));
 
         builder.Host.UseSerilog((ctx, lc) => lc
         .WriteTo.Console()
